@@ -1,0 +1,37 @@
+{% extends "accounts/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>Your Club Member's</h4>
+                <ul>
+                    <!-- Iterate over object_list -->
+                    {% for member in members_list %}
+                    <!-- Display Objects -->
+                    <li>{{ member.memname}}</li>
+                    <button class="btn btn-outline-dark mt-3 text-right" type="submit">Remove</button>
+                    <button class="btn btn-outline-dark mt-3 text-right" type="submit">Info</button>
+                    <hr/>
+                    <!-- If objet_list is empty  -->
+                    {% empty %}
+                    <li>No objects yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-md-2 mt-5">
+                <a href="{% url 'members' %}" class="btn btn-dark">Add Members</a>
+            </div>
+            <div class="col-md-2 mt-5">
+                <a href="{% url 'addevents' %}" class="btn btn-dark">Add Events</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+{% endblock %}

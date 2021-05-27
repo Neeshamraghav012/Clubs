@@ -1,0 +1,46 @@
+{% extends "accounts/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+<main class="container pt-3">
+
+    <form method="POST" class="form-horizontal">
+
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="pass1">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="pass2">
+      </div>
+
+      {{ profile|crispy }}
+
+      <br>
+
+      <button type="submit", class="btn btn-success">Register</button>
+        
+
+        
+    </form>
+      
+
+  </main>
+
+
+  <div class="text-center mt-3">
+    <h6>If you already have an account click <a href="{% url 'login' %}">here</a></h6>
+  </div>
+
+    
+
+{% endblock %}

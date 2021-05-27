@@ -1,0 +1,27 @@
+{% extends "accounts/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card" style="width: 16rem;">
+                    <img src="{{data.poster.url}}" class="card-img-top" alt="Event Poster">
+                    <div class="card-body">
+                      <h5 class="card-title">{{data.name}}</h5>
+                      <button type="button" class="btn btn-primary">
+                        Participants <span class="badge bg-secondary">{{total_reg}}</span>
+                      </button>
+          
+                      <p class="card-text">{{data.content|safe }}</p>
+                      <a href="{% url 'eventRegister' data.id  %}" class="btn btn-primary">Register</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- truncatechars:255-->
+    
+{% endblock %}

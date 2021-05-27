@@ -1,0 +1,36 @@
+{% extends "accounts/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+
+
+<br>
+<div class="container">
+  <div class="row">
+
+    {% for i in data %}
+
+    <div class="col-sm-4 m-2">
+
+      <div class="card" style="width: 16rem;">
+          <img src="{{i.poster.url}}" class="card-img-top" alt="Event Poster">
+          <div class="card-body">
+            <h5 class="card-title">{{i.name}}</h5>
+            <!--<bdo><h2>Participations </h2>{{par}}</bdo> -->
+
+            <!--<p class="card-text">{{i.content|truncatechars:255 }}</p>-->
+            <a href="{% url 'event-details' i.id   %}" class="btn btn-primary">Register</a>
+          </div>
+      </div>
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+{% endblock %}

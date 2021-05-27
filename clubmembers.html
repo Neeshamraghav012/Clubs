@@ -1,0 +1,22 @@
+{% extends "accounts/layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+    <ul>
+        <!-- Iterate over object_list -->
+        {% for member in members %}
+        <!-- Display Objects -->
+            {% if member !=  request.user.username %}
+                <li>{{ member}}</li>
+                <button class="btn btn-outline-primary mt-3 text-right" type="submit">Info</button>
+        
+                <hr/>
+            {% endif %}
+        <!-- If objet_list is empty  -->
+        {% empty %}
+        <li>No Members  yet.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

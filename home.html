@@ -1,0 +1,88 @@
+{% extends "accounts/layout.html" %}
+
+
+{% block main %}
+
+<div class="container">
+    <div class="row m-2">
+        <div class="col-sm-12">
+
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+
+    
+                <div class="carousel-inner">
+                {% for i in pos %}
+                  <div class="carousel-item{% if forloop.first %} active {% endif %}">
+                    <img src="{{i.poster.url}}" class="d-block w-100" alt="Manan">
+                  </div>
+                
+                {% endfor %}
+            
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<br>
+{% if msg %}
+
+    <h4 style="text-align: center; color: green;">{{msg}}</h4>
+
+{% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                {% if events %}
+
+                    <h4>Your Registrations</h4>
+                    {% for i in events %}
+
+                        <li><a href="#"> {{i}}.</a></li>
+                        <br>
+                    {% endfor %}
+
+                {% endif %}
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row align-item-center">
+
+        {% if img %}
+            {% for i in img %}
+            <div class="col-sm-4 m-3">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="{{i.logo.url}}" class="card-img-top" alt="Clubs Logo!">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <p class="card-text">Date of Found -> {{i.dateoffound}}</p>
+                        <a href="{% url 'Your-club-members' i.id  %}" class="btn btn-dark">Members</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        {% endif %}
+
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
