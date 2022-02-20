@@ -1,88 +1,68 @@
-{% extends "accounts/layout.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 
-{% block main %}
+    <title>Home</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand " href="#">cosb</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+              </li>
 
-<div class="container">
-    <div class="row m-2">
-        <div class="col-sm-12">
 
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
 
-    
-                <div class="carousel-inner">
-                {% for i in pos %}
-                  <div class="carousel-item{% if forloop.first %} active {% endif %}">
-                    <img src="{{i.poster.url}}" class="d-block w-100" alt="Manan">
-                  </div>
-                
-                {% endfor %}
-            
-                </div>
-            </div>
 
+
+                <li class="nav-item">
+                  <a class="nav-link active" href="{% url 'logout' %}">Log Out</a>
+                </li>
+
+
+            </ul>
+          </div>
         </div>
-    </div>
-</div>
-
-<br>
-{% if msg %}
-
-    <h4 style="text-align: center; color: green;">{{msg}}</h4>
-
-{% endif %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-
-                {% if events %}
-
-                    <h4>Your Registrations</h4>
-                    {% for i in events %}
-
-                        <li><a href="#"> {{i}}.</a></li>
-                        <br>
-                    {% endfor %}
-
-                {% endif %}
-                
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-<div class="container">
-    <div class="row align-item-center">
-
-        {% if img %}
-            {% for i in img %}
-            <div class="col-sm-4 m-3">
-
-                <div class="card" style="width: 18rem;">
-                    <img src="{{i.logo.url}}" class="card-img-top" alt="Clubs Logo!">
-                    <div class="card-body">
-                        <h5 class="card-title">{{i.name}}</h5>
-                        <p class="card-text">Date of Found -> {{i.dateoffound}}</p>
-                        <a href="{% url 'Your-club-members' i.id  %}" class="btn btn-dark">Members</a>
-                    </div>
-                </div>
-
-            </div>
-            {% endfor %}
-
-        {% endif %}
-
-
-    </div>
-</div>
+      </nav>
 
 
 
 
+    <!-- Optional JavaScript; choose one of the two! -->
 
-{% endblock %}
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <script src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
